@@ -1,0 +1,11 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./src/sass/main.scss:./public/css/style.css"
+  },
+  "author": "AntoineG",
+  "license": "ISC",
+  "description": ""
+}
