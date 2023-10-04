@@ -13,7 +13,7 @@ let gameInterval;
 //Dimensions du serpent
 canvas.width = 500;
 canvas.height = 500;
-const snakeSize = 10;
+const snakeSize = 25;
 
 // Position initiale du serpent
 let snakeX = canvas.width / 2;
@@ -22,9 +22,9 @@ let snakeY = canvas.height / 2;
 //Taille du serpent (le serpent est un tableau de segment)
 let snake = [
     {x: 250, y: 250},
-    {x: 240, y: 250},
     {x: 230, y: 250},
-    {x: 220, y: 250},
+    {x: 210, y: 250},
+    {x: 190, y: 250},
 ];
 
 //Déplacement du serpent
@@ -107,9 +107,9 @@ function changeDirection(event) {
 function drawApple() {
     ctx.fillStyle = "red";
     ctx.beginPath();
-    // Dessiner un cercle : ctx.arc(x, y, radius, startAngle, endAngle)
     ctx.arc(appleX + snakeSize / 2, appleY + snakeSize / 2, snakeSize / 2, 0, 2 * Math.PI);
     ctx.fill();
+    ctx.closePath();
     ctx.strokeStyle = "darkred";  // Couleur du contour
     ctx.lineWidth = 1;  // Epaisseur du contour
     ctx.stroke();
@@ -122,6 +122,8 @@ function getRandomCoordinate() {
 
 //Détecter les collisions avec les pommes
 function checkAppleCollision() {
+    console.log(`Apple: (${appleX}, ${appleY})`);
+    console.log(`Snake head: (${snake[0].x}, ${snake[0].y})`);
     if (snake[0].x === appleX && snake[0].y === appleY) {
         eatSound.play();
 
